@@ -1,9 +1,6 @@
 # Kokoro TTS & Needle Engine
 
-Tiny package containing a kokro tts worker and Needle Engine component
-
-
-For a quick test go to the [./test](/test/) directory and run `npm i && npm dev` and open the local URL in your browser.
+This package contains a kokoro TTS worker and a small typed API for local text to speech.
 
 
 ### Usage
@@ -17,3 +14,6 @@ const myVoice = new Voice({
 });
 myVoice.say("Hello World");
 ```
+
+
+To test it locally go to the [./test](/test/) directory and run `npm i && npm dev`, then open the local URL in your browser.
