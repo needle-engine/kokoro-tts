@@ -1,4 +1,4 @@
-import KokoroWorker from './kokoro.worker.js?worker';
+import KokoroWorker from './kokoro.worker.js?worker&inline';
 
 
 let canPlayAudio = false;
@@ -35,9 +35,9 @@ export class Voice {
             device: opts.device,
             model_id: opts.model_id,
         }
-        // https://v3.vitejs.dev/guide/features.html#web-workers
-        // const workerPath = new URL('./src/kokoro.worker.js?worker', import.meta.url)
-        this.worker = opts.worker || new KokoroWorker();
+        // https://vite.dev/guide/features.html#web-workers
+        // const workerPath = new URL('./src/kokoro.worker.js', import.meta.url);
+        this.worker = opts.worker || new KokoroWorker(); //new Worker(workerPath, { type: "module" });
         this.worker.postMessage(configureMessage);
         this.worker.onmessage = this.onMessage;
         console.debug("Voice created");

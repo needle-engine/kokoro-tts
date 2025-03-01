@@ -9,5 +9,9 @@
   },
   "devDependencies": {
     "kokoro-js": "^1.2.0"
-  }
+  },
+  "files": [
+    "src",
+    "types"
+  ]
 }
