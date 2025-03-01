@@ -69,6 +69,7 @@ export class Voice {
      * Dispose of the voice object
      */
     dispose() {
+        console.debug("Voice disposed");
         this._queued.length = 0;
         this._activeTrack?.disconnect();
         this.worker.terminate();
@@ -80,6 +81,7 @@ export class Voice {
      * @returns {Promise<void>}
      */
     say(text) {
+        console.debug("Say:", text);
         this._sayNext = text;
         this._sayNextResolveText = text;
         const promise = new Promise((resolve) => {

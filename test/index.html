@@ -1,13 +1,28 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="https://cdn.needle.tools/branding/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kokoro + Needle</title>
+</head>
+
+<body>
+  <div id="app">
+    <span>
+      This is a tiny example for <a target="_blank" href="https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX">kokoro</a> in a worker. It may take a moment for the model to download if you open this
+      page for the very
+      first time
+    </span>
+    <div class="inputs">
+      <form id="form">
+        <input id="input" type="text" placeholder="Type something..." />
+        <button type="submit"> Speak </button>
+      </form>
+    </div>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
 </html>
