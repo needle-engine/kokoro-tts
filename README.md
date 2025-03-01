@@ -16,4 +16,4 @@ myVoice.say("Hello World");
 ```
 
 
-To test it locally go to the [./test](/test/) directory and run `npm i && npm dev`, then open the local URL in your browser.
+To test it locally go to the [./examples](/examples/) directory and run `npm i && npm dev`, then open the local URL in your browser.
