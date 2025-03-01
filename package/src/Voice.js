@@ -37,7 +37,7 @@ export class Voice {
         }
         // https://vite.dev/guide/features.html#web-workers
         // const workerPath = new URL('./src/kokoro.worker.js', import.meta.url);
-        this.worker = opts.worker || new KokoroWorker(); //new Worker(workerPath, { type: "module" });
+        this.worker = new KokoroWorker(); //new Worker(workerPath, { type: "module" });
         this.worker.postMessage(configureMessage);
         this.worker.onmessage = this.onMessage;
         console.debug("Voice created");
@@ -96,6 +96,12 @@ export class Voice {
         // return promise;
     }
 
+    /** @type {import("../types").Voice["state"]} */
+    _state = "loading";
+    get state() {
+        return this._state;
+    }
+
     /**
      * @internal
      */
@@ -119,11 +125,13 @@ export class Voice {
                             this._activeTrack.disconnect();
                             this._activeTrack.stop();
                         }
+                        this._state = "speaking";
                         this._activeTrack = this.context.createBufferSource();
                         this._activeTrack.connect(this.context.destination);
                         this._activeTrack.buffer = buffer;
                         this._activeTrack.start(0);
                         setTimeout(() => {
+                            this._state = "idle";
                             this._charactersSaid += data.text.length;
                             this._activeBuffer = null;
                             console.debug(this._charactersSaid, this._currentlySaying?.length, this._queued.length, data.text);
@@ -155,6 +163,7 @@ export class Voice {
         switch (data.type) {
             case "worker-ready":
                 console.debug("Worker ready");
+                this._state = "idle";
                 this._workerReady = true;
                 break;
             case "audio":
