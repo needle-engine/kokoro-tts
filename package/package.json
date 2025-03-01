@@ -1,0 +1,13 @@
+{
+  "name": "@needle-tools/kokoro-tts",
+  "version": "1.0.0-alpha.0",
+  "type": "module",
+  "main": "src/index.js",
+  "types": "types/index.d.ts",
+  "peerDependencies": {
+    "kokoro-js": "^1.2.0"
+  },
+  "devDependencies": {
+    "kokoro-js": "^1.2.0"
+  }
+}
