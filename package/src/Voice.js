@@ -1,4 +1,4 @@
-import KokoroWorker from './kokoro.worker.js?worker&inline';
+import KokoroWorker from './kokoro.worker.js?worker';
 
 
 let canPlayAudio = false;

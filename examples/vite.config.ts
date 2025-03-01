@@ -1,7 +1,11 @@
+import { defineConfig } from 'vite'
+export default defineConfig({
 
-export default {
     base: "kokoro-tts",
+    build: {
+        emptyOutDir: true,
+    },
     worker: {
         format: "es",
-    },
-}
+    }
+})
