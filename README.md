@@ -1,7 +1,8 @@
 # Kokoro TTS & Needle Engine
 
-This package contains a kokoro TTS worker and a small typed API for local text to speech.
+This package contains a kokoro TTS worker and a small typed API for local text to speech.   
 
+[Live Example](https://needle-engine.github.io/kokoro-tts/)
 
 ### Usage
 
